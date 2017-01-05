@@ -1,0 +1,34 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fragment.Main">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="315dp"
+            android:layout_height="80dp"
+            android:text="Status:"
+            android:id="@+id/StatusText"
+            android:layout_weight="0.33" />
+
+        <WebView
+            android:layout_width="277dp"
+            android:layout_height="301dp"
+            android:id="@+id/Oauth" />
+
+        <Button
+            android:text="Button"
+            android:layout_width="102dp"
+            android:layout_height="70dp"
+            android:id="@+id/tryButton" />
+
+    </LinearLayout>
+
+</FrameLayout>
