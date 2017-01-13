@@ -23,11 +23,24 @@
             android:layout_height="301dp"
             android:id="@+id/Oauth" />
 
-        <Button
-            android:text="Button"
-            android:layout_width="102dp"
-            android:layout_height="70dp"
-            android:id="@+id/tryButton" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33">
+
+            <Button
+                android:text="Get Profile"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:id="@+id/tryButton" />
+
+            <Button
+                android:text="Get Heart Rate"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:id="@+id/getHR" />
+        </LinearLayout>
 
     </LinearLayout>
 

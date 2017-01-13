@@ -3,6 +3,9 @@ package com.example.michaellam.fypdemo.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,7 +37,8 @@ public class httpGet extends AsyncTask<String , Void ,String> {
 
             if(responseCode == HttpsURLConnection.HTTP_OK){
                 server_response = readStream(urlConnection.getInputStream());
-                Log.v("CatalogClient", server_response);
+                //Log.v("CatalogClient", server_response);
+                JSONObject obj = stringtoJSON(server_response);
             }
 
         } catch (MalformedURLException e) {
@@ -54,6 +58,31 @@ public class httpGet extends AsyncTask<String , Void ,String> {
 
 
     }
+
+    //Parsing JSON
+    private JSONObject stringtoJSON(String s)
+    {
+        JSONObject json = null;
+        try {
+            json = new JSONObject(s);
+            //Log.d("Result:" , json.toString());
+            JSONArray inner = json.getJSONArray("activities-heart");
+            //Log.d("inner", inner.toString());
+            for(int i=0; i < inner.length() ; i++)
+            {
+                JSONObject a = inner.getJSONObject(i);
+
+                Log.d("Content", a.toString());
+            }
+
+        }catch(Throwable tx)
+        {
+            Log.e("My App", "Could not parse malformed JSON: \"" + s + "\"");
+        }
+        return json;
+
+    }
+
 
 // Converting InputStream to String
 

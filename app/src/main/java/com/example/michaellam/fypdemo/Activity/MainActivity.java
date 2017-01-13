@@ -10,9 +10,6 @@ import android.widget.TextView;
 
 import com.example.michaellam.fypdemo.R;
 
-import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,6 +30,18 @@ public class MainActivity extends AppCompatActivity {
 
         Button check = (Button) findViewById(R.id.tryButton);
         final TextView status = (TextView) findViewById(R.id.StatusText);
+
+        Button checkHR = (Button) findViewById(R.id.getHR);
+
+        checkHR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View V)
+            {
+                String[] inputS = {"https://api.fitbit.com/1/user/"+ userID +"/activities/heart/date/" + "today/1d.json", tokenType + " " + token};
+                new httpGet().execute(inputS);
+            }
+        });
+
 
         check.setOnClickListener(new View.OnClickListener() {
             @Override
